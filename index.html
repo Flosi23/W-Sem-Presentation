@@ -8,16 +8,200 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/custom.css">
+		<link rel="stylesheet" href="./index.css">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<link rel="stylesheet" href="plugin/highlight/atom-one-light.min.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Vereinfachung von Termen mit Computeralgebrasystemen</h2>
+				</section>
+				<section data-auto-animate>
+					<h4>Was ist ein Computeralgebrasystem?</h4>
+				</section>			
+				<section data-auto-animate>
+					<h4>Was ist ein Computeralgebrasystem?</h4>
+					<div data-id="def" class="def font-size-larger">
+						Ein <b>Computeralgebrasystem</b> ist ein Programm, welches Methoden zum Lösen
+						mathematisch formulierter Probleme durch Algorithmen bietet. Es beruht auf der exakten
+						endlichen Darstellung mathematischer Objekte und Strukturen.
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Was ist ein Computeralgebrasystem?</h4>
+					<div data-id="def" class="def font-size-larger">
+						Ein <b>Computeralgebrasystem</b> ist ein Programm, welches Methoden zum Lösen
+						mathematisch formulierter Probleme durch Algorithmen bietet. Es beruht auf der exakten
+						endlichen Darstellung mathematischer Objekte und Strukturen.
+					</div>
+					<div class="r-hstack logos">
+						<img src="https://www.wolfram.com/mathematica/img/overview/intro-spikey.png">
+						<img src="https://de.maplesoft.com/products/mapleflow/images/maple-logo.png">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Geogebra.svg/2048px-Geogebra.svg.png">
+					</div>
+				</section>
+				<section>
+					<h4>Eigenschaften von Computeralgebrasystemen</h4>
+					<ul class="font-size-larger">
+						<li>Eine Benutzeroberfläche</li>
+						<li>Einen Vereinfachungsalgorithmus</li>
+						<li>Eine große Menge an mathematischen Algorithmen und Funktionen</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Benutzereingaben</h4>
+					<table class="font-size-larger">
+						<tr>
+							<th>Zeichen</th>
+							<th>Bedeutung</th>
+						</tr>
+						<tr>
+							<td><code>0 - 9</code></td>
+							<td>Ziffer</td>
+						</tr>
+						<tr>
+							<td><code>+</code></td>
+							<td>Addition</td>
+						</tr>
+						<tr>
+							<td><code>-<code/></td>
+							<td>Subtraktion</td>
+						</tr>
+						<tr>
+							<td><code>/</code></td>
+							<td>Division</td>
+						</tr>
+						<tr>
+							<td><code>*</code></td>
+							<td>Multiplikation</td>
+						</tr>
+						<tr>
+							<td><code>^</code></td>
+							<td>Potenz</td>
+						</tr>
+						<tr>
+							<td><code>a - z</code></td>
+							<td>Symbol (Variable)</td>
+						</tr>
+					</table>
+				</section>
+				<section data-auto-animate>
+					<h4>Wahl der Datenstruktur</h4>
+					<div class="r-hstack">
+						<div data-id="string" style="width: 250px; margin-right: 50px;">
+							<code>3 + 4 * 5</code>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Wahl der Datenstruktur</h4>
+					<div class="r-hstack">
+						<div data-id="string" style="width: 250px; margin-right: 50px;">
+							<code>3 + 4 * 5</code>
+						</div>
+						<h3>VS.</h3>
+						<div style="width: 250px; margin-left: 50px;">
+							<img src="./images/beispiel_1_baum.png">
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Wahl der Datenstruktur</h4>
+					<div class="r-hstack">
+						<div data-id="string" style="width: 250px; margin-right: 50px;">
+							<code>3 + 4 * 5</code>
+						</div>
+						<h3>VS.</h3>
+						<div style="width: 250px; margin-left: 50px;">
+							<img src="./images/beispiel_1_baum.png">
+						</div>
+					</div>
+					<div class="def font-size-larger">
+						Ein <b>Baum mathematischer Ausdrücke</b> ist ein Baum, in dem jeder Elternknoten 
+						ein zusammengesetzter Ausdruck ist. Die Kinder eines Elternknotens sind seine Operanden, 
+						welche zusammengesetze oder atomare Ausdrücke sein können.  
+						Alle Blätter des Baumes sind atomare Ausdrücke.
+					</div>
+				</section>
+				<section>
+					<h4>
+						Zusammengesetzte und atomare Ausdrücke
+					</h4>
+					<img style="height: 200px;" src="./images/beispiel_1_baum.png">
+					<div class="def font-size-larger">
+						Ein <b>atomarer Ausdruck</b> ist eine ganze Zahl oder ein Symbol. Atomare Ausdrücke 
+						können nicht weiter vereinfacht werden
+					</div>
+					<div class="def font-size-larger">
+						Ein <b>zusammengesetzte Ausdruck</b> besteht aus einem Operator und einem
+						oder mehreren Operanden. Zu diesen Ausdrücken zählen Summen, Produkte, Differenzen,
+						Divisionen und Potenzen
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Binäre und nicht-binäre Operatoren</h4>
+					<div class="r-hstack">
+						<img style="height: 250px;" src="./images/beispiel_non_binary_1.png">
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Binäre und nicht-binäre Operatoren</h4>
+					<div class="r-hstack">
+						<img style="height: 200px; margin-right: 50px;" src="./images/beispiel_non_binary_1.png">
+						<div data-id="equation" class="font-size-equation">\[ (x + y) + z = x + (y + z) \]</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h4>Binäre und nicht-binäre Operatoren</h4>
+					<div class="r-hstack">
+						<img style="height: 200px; margin-right: 50px;" src="./images/beispiel_non_binary_1.png">
+						<div data-id="equation" class="font-size-equation">\[ (x + y) + z = x + (y + z) \]</div>
+						<img style="height: 200px; margin-left: 50px;" src="./images/beispiel_non_binary_2.png">
+					</div>
+				</section>
+				<section data-auto-animate data-auto-animate-id="parsing">
+					<h4>Parsen von Benutzereingaben</h4>
+				</section>
+				<section data-auto-animate data-auto-animate-id="parsing">
+					<h4>Parsen von Benutzereingaben</h4>
+					<div class="def font-size-larger" data-id="def">
+						Die <b>konventionelle Struktur</b> eines Ausdrucks entspricht der Struktur vor der
+						automatischen Vereinfachung. Diese Struktur ist auch die, die in der Mathematik verwendet
+						wird. Hier gilt:
+					</div>
+					<ol class="font-size-larger">
+						<li>Die Operatoren <code>+</code> und <code>-</code> haben entweder 1 oder 2 Operanden</li>
+						<li>Die Operatoren <code>* / ^</code> haben immer 2 Operanden</li>
+						<li>Die Operanden der Operatoren sind algebraische Ausdrücke</li>
+					</ol>
+					<div class="r-vstack font-size-larger">
+						<p>höchste Priorität</p>
+						<code>^</code>
+						<code>* /</code>
+						<code>+ - </code>
+						<p>niedrigste Priorität</p>
+					</div>
+				</section>
+				<section>
+					<h4>Konventionelle Struktur als Sprache</h4>
+					<p class="font-size-larger">\[ \sum = \{+,-,*,/,\wedge,a...z,0...9\} \]</p>
+					<p class="font-size-larger">\[ L = \{3+4,5+*4\} \]</p>
+				</section>
+				<section>
+					<p>Grammatik</p>
+					<pre>
+						<code>
+	&ltexp&gt ::= &ltexp&gt + &ltexp&gt | &ltexp&gt * &ltexp&gt | &ltexp&gt - &ltexp&gt | &ltexp&gt / &ltexp&gt | &ltexp&gt ^ &ltexp&gt | &ltint&gt | &ltsymbol&gt
+	&ltint&gt ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+				</section>
 			</div>
 		</div>
 
@@ -25,6 +209,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -33,7 +218,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX  ]
 			});
 		</script>
 	</body>
