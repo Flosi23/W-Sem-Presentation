@@ -195,9 +195,133 @@
 					<p>Grammatik</p>
 					<pre>
 						<code>
-	&ltexp&gt ::= &ltexp&gt + &ltexp&gt | &ltexp&gt * &ltexp&gt | &ltexp&gt - &ltexp&gt | &ltexp&gt / &ltexp&gt | &ltexp&gt ^ &ltexp&gt | &ltint&gt | &ltsymbol&gt
-	&ltint&gt ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
-	&ltdigit&gt ::= 0 | ... | 9
+	&ltexp&gt    ::= &ltexp&gt + &ltexp&gt | &ltexp&gt * &ltexp&gt | &ltexp&gt - &ltexp&gt | 
+			  	 ::= &ltexp&gt / &ltexp&gt | &ltexp&gt ^ &ltexp&gt | &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h4>Problem 1</h4>
+					<p class="font-size-larger">\[ 6+3*4 \]</p>
+					<pre>
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltexp&gt | &ltexp&gt * &ltexp&gt | &ltexp&gt - &ltexp&gt | 
+			  	 ::= &ltexp&gt / &ltexp&gt | &ltexp&gt ^ &ltexp&gt | &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+					<div class="r-hstack">
+						<img style="height: 250px; margin-right: 50px;" src="./images/beispiel_bnf_2_1.png"/>
+						<img style="height: 250px; margin-left: 50px;"src="./images/beispiel_bnf_2_2.png"/>
+					</div>
+				</section>
+				<section>
+					<h4>Lösung?</h4>
+					<pre>
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltexp&gt | &ltexp&gt * &ltexp&gt | &ltexp&gt - &ltexp&gt |
+			     ::= &ltexp&gt / &ltexp&gt | &ltexp&gt ^ &ltexp&gt | &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+					</code>
+					</pre>
+				</section>
+				<section>
+					<h4>Grammatik V2</h4>
+					<pre>
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltexp&gt | &ltexp&gt - &ltexp&gt | &ltterm&gt
+	&ltterm&gt 	 ::= &ltterm&gt * &ltterm&gt | &ltterm&gt / &ltterm&gt | &ltpower&gt 
+	&ltpower&gt  ::= &ltpower&gt ^ &ltpower&gt | &ltfactor&gt
+	&ltfactor&gt ::= &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h4>Problem 2</h4>
+					<p class="font-size-larger">\[ 4 - 5 - 2 \]</p>
+					<pre>
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltexp&gt | &ltexp&gt - &ltexp&gt | &ltterm&gt
+	&ltterm&gt 	 ::= &ltterm&gt * &ltterm&gt | &ltterm&gt / &ltterm&gt | &ltpower&gt 
+	&ltpower&gt  ::= &ltpower&gt ^ &ltpower&gt | &ltfactor&gt
+	&ltfactor&gt ::= &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+					<div class="r-hstack">
+						<img style="height: 250px; margin-right: 50px;" src="./images/beispiel_bnf_3_1.png"/>
+						<img style="height: 250px; margin-left: 50px;"src="./images/beispiel_bnf_3_2.png"/>
+					</div>
+				</section>	
+				<section>
+					<h4>Grammatik V2</h4>
+					<pre>
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltexp&gt | &ltexp&gt - &ltexp&gt | &ltterm&gt
+	&ltterm&gt 	 ::= &ltterm&gt * &ltterm&gt | &ltterm&gt / &ltterm&gt | &ltpower&gt 
+	&ltpower&gt  ::= &ltpower&gt ^ &ltpower&gt | &ltfactor&gt
+	&ltfactor&gt ::= &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+				</section>
+				<section>
+					<h4>Grammatik V3</h4>
+					<pre>
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltterm&gt | &ltexp&gt - &ltterm&gt | &ltterm&gt
+	&ltterm&gt 	 ::= &ltterm&gt * &ltpower&gt | &ltterm&gt / &ltpower&gt | &ltpower&gt 
+	&ltpower&gt  ::= &ltfactor&gt ^ &ltpower&gt | &ltfactor&gt
+	&ltfactor&gt ::= &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+				</section>
+				<section data-auto-animate>
+					<h4 data-id="heading">Ergänzungen</h4>
+					<ol class="font-size-larger">
+						<li>Unäre Operatoren (z.B -4)</li>
+						<li>Manipulation der Operatorranngfolge durch Klammern</li>
+					</ol>
+					<pre data-id="code">
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltterm&gt | &ltexp&gt - &ltterm&gt | &ltterm&gt
+	&ltterm&gt 	 ::= &ltterm&gt * &ltpower&gt | &ltterm&gt / &ltpower&gt | &ltpower&gt 
+	&ltpower&gt  ::= &ltfactor&gt ^ &ltpower&gt | &ltfactor&gt
+	&ltfactor&gt ::= &ltint&gt | &ltsymbol&gt
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
+	&ltsymbol&gt ::= a | ... | z
+						</code>
+					</pre>
+				</section>
+				<section data-auto-animate>
+					<h4 data-id="heading">Grammatik V4</h4>
+					<pre data-id="code">
+						<code>
+	&ltexp&gt    ::= &ltexp&gt + &ltterm&gt | + &ltterm&gt | 
+			     ::= &ltexp&gt - &ltterm&gt | - &ltterm&gt | &ltterm&gt
+	&ltterm&gt 	 ::= &ltterm&gt * &ltpower&gt | &ltterm&gt / &ltpower&gt | &ltpower&gt 
+	&ltpower&gt  ::= &ltfactor&gt ^ &ltpower&gt | &ltfactor&gt
+	&ltfactor&gt ::= ( &ltexp&gt ) | &ltint&gt | &ltsymbol&gt 
+	&ltint&gt 	 ::= &ltdigit&gt | &ltdigit&gt&ltint&gt
+	&ltdigit&gt  ::= 0 | ... | 9
 	&ltsymbol&gt ::= a | ... | z
 						</code>
 					</pre>
